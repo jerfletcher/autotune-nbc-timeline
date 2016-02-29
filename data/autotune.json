@@ -1,0 +1,27 @@
+{
+  "base_url": "//test.apps.voxmedia.com/at-preview/custom-star-wars-timeline/",
+  "title": "Star Wars Timeline",
+  "slug": "custom-star-wars-timeline",
+  "theme": "custom",
+  "primaryColor": "#FF0080",
+  "moments": [
+    {
+      "moment": "May 25, 1977",
+      "headline": "Star Wars: A New Hope",
+      "image": "http://imgc.allpostersimages.com/images/P-473-488-90/67/6751/7TAZ100Z/posters/star-wars-episode-iv-new-hope-classic-movie-poster.jpg",
+      "text": "The Imperial Forces -- under orders from cruel Darth Vader (David Prowse) -- hold Princess Leia (Carrie Fisher) hostage, in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker (Mark Hamill) and Han Solo (Harrison Ford), captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 (Kenny Baker) and C-3PO (Anthony Daniels) to rescue the beautiful princess, help the Rebel Alliance, and restore freedom and justice to the Galaxy."
+    },
+    {
+      "moment": "May 21, 1980",
+      "headline": "Star Wars: The Empire Strikes Back",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/fb/The_Empire_Strikes_Back_(1997_re-release_poster).jpg",
+      "text": "The adventure continues in this \"Star Wars\" sequel. Luke Skywalker (Mark Hamill), Han Solo (Harrison Ford), Princess Leia (Carrie Fisher) and Chewbacca (Peter Mayhew) face attack by the Imperial forces and its AT-AT walkers on the ice planet Hoth. While Han and Leia escape in the Millennium Falcon, Luke travels to Dagobah in search of Yoda. Only with the Jedi master's help will Luke survive when the dark side of the Force beckons him into the ultimate duel with Darth Vader (David Prowse)."
+    },
+    {
+      "moment": "May 25, 1983",
+      "headline": "Star Wars: Return of the Jedi",
+      "image": "https://www.movieposter.com/posters/archive/main/111/MPW-55925",
+      "text": "Luke Skywalker (Mark Hamill) battles horrible Jabba the Hut and cruel Darth Vader to save his comrades in the Rebel Alliance and triumph over the Galactic Empire. Han Solo (Harrison Ford) and Princess Leia (Carrie Fisher) reaffirm their love and team with Chewbacca, Lando Calrissian (Billy Dee Williams), the Ewoks and the androids C-3PO and R2-D2 to aid in the disruption of the Dark Side and the defeat of the evil emperor."
+    }
+  ]
+}

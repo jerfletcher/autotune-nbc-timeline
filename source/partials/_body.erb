@@ -1,0 +1,22 @@
+<div class="timeline centered" id="container">
+  <ul>
+
+    <% data.autotune.moments.each_with_index do |i, index| %>
+    <li class="item" id="moment-<%= index %>" data-moment="<%= i.moment %>">
+      <div class="card">
+      <h5 class="moment"><%= i.moment %></h5>
+      <h6 class="headline"><%= i.headline %></h6>
+      <div class="text">
+        <% unless i.image.blank? %>
+        <div class="img">
+          <img class="lazy" src="<%= thumb_url i.image, width: 400 %>">
+        </div>
+        <% end %>
+        <%= i.text %>
+      </div>
+    </div>
+    </li>
+    <% end %>
+
+  </ul>
+</div>

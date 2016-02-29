@@ -1,0 +1,14 @@
+<li class="item" id="moment-<%= index %>" data-moment="<%= card.moment %>">
+  <div class="card">
+  <h5 class="moment"><%= card.moment %></h5>
+  <h6 class="headline"><%= card.headline %></h6>
+  <div class="text">
+    <% if(card.image) { %>
+      <div class="img">
+        <img class="lazy" src="<%= card.image %>">
+      </div>
+    <% } %>
+    <%= card.text %>
+  </div>
+</div>
+</li>

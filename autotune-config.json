@@ -1,0 +1,97 @@
+{
+  "name": "Timeline",
+  "description": "Blueprint for creating timeline embeds.",
+  "instructions": "### Instructions\n\nThis blueprint is used to create embeddable timelines.\n\n#### Moment\n\nThe Moment is the date, time or place indicator for the timeline item.\n\n#### Headline\n\nThe optional headline is for futher clarification of the timeline item.\n\n#### Image\n\nOptional Image URL.\n\n#### Text or Embed\n\nHere you can place text or embeds (such as a youtube video). If you use an embed here, place it at the top and do not use an image in the field above. You can use basic HTML here.\n\n#### Usage\n\nEnter your Title, Slug and choose a Vertical Theme. Click the Add Item button to add a moment, fill in the details and reorder with the arrows below. Add a new moment with the Add New button below.\n",
+  "type": "graphic",
+  "preview_type": "live",
+  "sample_data": "data/autotune.json",
+  "tags": ["Example"],
+  "thumbnail": "thumbnail.png",
+  "themes": ["curbed", "eater", "polygon", "racked", "sbnation", "theverge", "vox", "custom"],
+  "authors": ["Josh Laincz <josh.laincz@voxmedia.com>"],
+  "form": {
+    "schema": {
+      "title": "Autotune Timeline",
+      "description": "Get yerself a timeline",
+      "type": "object",
+      "properties": {
+        "primaryColor": {
+          "title": "Custom Color",
+          "type": "string",
+          "default": "#282828",
+          "dependencies": "theme"
+        },
+        "moments": {
+          "type": "array",
+          "title": "Moments",
+          "items": {
+            "title": "<span class='label label-primary'>Moment</span><span class='text-muted'> (Click to collapse)</span>",
+            "type": "object",
+            "minItems": 1,
+            "properties": {
+              "moment": {
+                "title": "Moment",
+                "type": "string",
+                "required": true
+              },
+              "headline": {
+                "title": "Headline",
+                "type": "string"
+              },
+              "image": {
+                "title": "Image",
+                "type": "url"
+              },
+              "text": {
+                "title": "Text or Embed",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "options": {
+      "fields": {
+        "primaryColor": {
+          "placeholder": "Hex Value, e.g. #282828",
+          "dependencies": {
+            "theme": "custom"
+          }
+        },
+        "moments": {
+          "type": "array",
+          "actionbarStyle": "bottom",
+          "collapsed": true,
+          "items": {
+            "fieldClass": "well",
+            "collapsed": true,
+            "fields": {
+              "moment": {
+                "type": "text",
+                "label": "Moment",
+                "placeholder": "Date, e.g. “July 4, 1976” or “16th Century”"
+              },
+              "headline": {
+                "type": "text",
+                "label": "Headline",
+                "placeholder": "Title of this moment"
+              },
+              "image": {
+                "type": "url",
+                "label": "Image",
+                "placeholder": "Image URL"
+              },
+              "text": {
+                "type": "textarea",
+                "label": "Text or Embed",
+                "rows": 5,
+                "cols": 40
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
