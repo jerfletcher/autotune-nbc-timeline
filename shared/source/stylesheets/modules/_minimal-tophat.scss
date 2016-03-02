@@ -1,0 +1,66 @@
+$topbar-bg-color: transparent;
+
+.top-bar { background-color: transparent };
+
+.top-bar {
+    max-width: 1100px;
+    padding: 1rem 0.9375rem 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto !important;
+}
+.top-bar .left {
+    line-height: 1rem;
+}
+.top-bar .left .logo {
+    background-image: $logo;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    display: inline-block;
+    height: 2.8125rem;
+    min-width: 150px;
+
+    &.vox {
+        background-position: -11px center;
+    }
+}
+.top-bar .right .button {
+    font-size: 0.65rem;
+    font-family: $body-font-family;
+    text-transform: uppercase;
+    padding: .6rem .6rem .55rem .5rem;
+    height: auto;
+    -webkit-font-smoothing: auto;
+    margin-left: 5px;
+    letter-spacing: .05em;
+
+    &.icon-twitter {
+        background-color: $twitter;
+
+        &:hover {
+            background-color: darken($twitter, 10%);
+        }
+    }
+    &.icon-facebook {
+        background-color: $facebook;
+
+        &:hover {
+            background-color: darken($facebook, 10%);
+        }
+    }
+    &.icon-pinterest-alt {
+        background-color: $pinterest;
+
+        &:hover {
+            background-color: darken($pinterest, 10%);
+        }
+    }
+    &:before {
+        margin: 0 .8em 0 0;
+    }
+
+    @media only screen and (min-width: 40.0625em) {
+        top: 0;
+    }
+}

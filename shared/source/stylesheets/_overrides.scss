@@ -1,0 +1,51 @@
+.breadcrumbs,
+.alert-box,
+.f-dropdown,
+.magellan-container,
+ul.pagination {
+  font-family: $font-family-sans-serif;
+}
+
+table {
+  font-family: $font-family-data;
+}
+
+.button {
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+.button.facebook,
+.button.twitter,
+.button.gplus,
+.button.pinterest {
+  i { margin-left: -4px; }
+}
+
+.button.facebook {
+  background-color:$facebook;
+  &:hover, &:active {
+    background-color:darken($facebook, 5%);
+  }
+}
+
+.button.twitter {
+  background-color:$twitter;
+  &:hover, &:active {
+    background-color:darken($twitter, 5%);
+  }
+}
+
+.button.gplus {
+  background-color:$gplus;
+  &:hover, &:active {
+    background-color:darken($gplus, 5%);
+  }
+}
+
+.button.pinterest {
+  background-color:$pinterest;
+  &:hover, &:active {
+    background-color:darken($pinterest, 5%);
+  }
+}

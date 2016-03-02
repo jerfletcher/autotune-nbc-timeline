@@ -1,0 +1,5 @@
+<div class="inline-share">
+	<a data-analytics-social="twitter" href="<%= tweet(page_slug, twitter_text, nil) %>" class="icon-twitter">Tweet</a>
+	<a data-analytics-social="facebook" href="<%= facebook(page_slug, nil) %>" class="icon-facebook">Share</a>
+	<a data-analytics-social="pinterest" href="<%= pinterest(page_slug, twitter_text || seo_description, share_image_url || fallback_sharing_image_url, nil) %>" class="icon-pinterest-alt">Pin</a>
+</div>

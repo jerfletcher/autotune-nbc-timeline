@@ -1,0 +1,72 @@
+.content .row.pagination span,
+q,
+.row h2,
+.row h3,
+.row h4,
+.row h5,
+.row h6,
+.cover h2,
+.cover h3,
+.cover h4,
+.cover h5,
+.cover h6,
+.cred_title {
+  font-family: "Franklin ITC Cond Light", sans-serif;
+  letter-spacing: 1px;
+}
+
+.row h2,
+.row h3,
+.row h4,
+.row h5,
+.row h6 {
+  text-transform: uppercase;
+}
+
+q,
+.content .snippet q {
+  box-shadow: -0.15em 0 0 white, 0.15em 0 0 white;
+  -webkit-box-shadow: -0.15em 0 0 white, 0.15em 0 0 white;
+  -ms-box-shadow: -0.15em 0 0 white, 0.15em 0 0 white;
+  -moz-box-shadow: -0.15em 0 0 white, 0.15em 0 0 white;
+  -o-box-shadow: -0.15em 0 0 white, 0.15em 0 0 white;
+  letter-spacing: 0;
+  color: #777;
+  background-color: #fff;
+  display: inline;
+  left: .15em;
+  line-height: 1.2;
+  padding: .1em 0;
+  &:before {
+    -moz-transform: skewy(-2deg);
+    -ms-transform: skewy(-2deg);
+    -webkit-transform: skewy(-2deg);
+    transform: skewy(-2deg);
+    content: ".";
+    color: #9ac5cd;
+    background: #9ac5cd;
+    position: absolute;
+    top: -.3em;
+    display: block;
+    left: -.5em;
+    right: 0;
+    bottom: -.3em;
+    z-index: -1;
+  }
+}
+
+b, strong, p strong, p b {
+  font-family: 'Calluna-Bold';
+}
+
+i, cite, em, p i, p em {
+  font-family: 'Calluna-It';
+}
+
+.m-graphics-topper h2 {
+  font-size:30px;
+}
+
+.button{
+  letter-spacing:1px;
+}

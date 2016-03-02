@@ -1,0 +1,174 @@
+//COVER
+.cover {
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  &__inner {
+    max-width: $row-width;
+    margin: 0 auto;
+    padding: 15% 15px;
+    @media #{$small-only} {
+      padding-top: 100px;
+    }
+  }
+}
+
+//CONTENT
+.content {
+  padding: 30px 0;
+}
+.row {
+  margin-bottom: rem-calc(20);
+  &.full {
+    max-width: none;
+    width: 100%;
+  }
+  &.wide {
+    max-width: $row-width-wide;
+  }
+  .columns {
+    margin-bottom: rem-calc(15);
+  }
+}
+
+//CITATIONS
+cite {
+  font-family: $body-font-family;
+  color: $blueprint-medium-gray;
+}
+
+//CREDITS
+.credits h4 {
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+
+//ADS
+.ad {
+  &.cover_ad {
+    margin-top: 25px;
+  }
+
+  .top-banner {
+    width: 320px;
+    height: 50px;
+    margin: 0 auto;
+
+    @media (min-width: $medium-breakpoint) {
+      width: 728px;
+      height: 90px;
+    }
+  }
+}
+
+body.bookmarked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.bookmark-unit {
+  @include transition(all, 0.5s, ease-in-out);
+  background-size: cover;
+  background-color: rgba(0,0,0,0.5);
+  background-repeat: no-repeat;
+  background-position: top center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  z-index: 9999999;
+  overflow: hidden;
+  text-align: center;
+  opacity: 0;
+  display: none;
+  .bookmarkClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 9px;
+    line-height: 1;
+    color: rgba(white, 0.75);
+    background: rgba(black, 0.3);
+    padding: 6px;
+    text-align: center;
+    z-index: 99;
+    &:hover {
+      background: rgba(black, 0.9);
+      color: white;
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 900px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+  &.active {
+    top: 45px;
+    bottom: 0;
+    opacity: 1;
+    display: block;
+  }
+}
+
+small.stb {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+//STB
+section.stb {
+  left: 11em;
+  position: absolute;
+  z-index: 999;
+  @media #{$small-only} {
+    left: 6em;
+  }
+  @media (max-width: 420px) {
+    top: 50px;
+    left: 100%;
+    margin-left: -45px;
+  }
+}
+.tab-bar .left {
+  z-index: 149;
+}
+nav.tab-bar .right.tab-bar-section {
+  z-index: 99;
+}
+
+
+//quotes -- disable auto quotation marks
+q:before, q:after {
+  content: none;
+}
+
+//PAGINATION -- This should be updated to use foundation pagination
+.row.pagination {
+  color: $blueprint-medium-gray;
+  vertical-align: middle;
+  a.prev,
+  a.next {
+    color: $secondary-color;
+    &.disabled{
+      color: $blueprint-gray;
+      cursor: default;
+    }
+  }
+  span {
+    text-transform: uppercase;
+    font-family: $header-font-family;
+    display: inline-block;
+    padding: 0 10px;
+  }
+}

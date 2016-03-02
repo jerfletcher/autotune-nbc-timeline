@@ -1,0 +1,21 @@
+<% article = current_page_data['chorus_entry'] %>
+<section class="content">
+  <div class="row">
+    <%= partial 'partials/ads/leaderboard' %>
+  </div>
+
+  <%= partial "partials/templates/article_lede", locals: { article: article } %>
+
+  <% lazy_article = lazy_load(article['body_extended'], options = { thumbnail: {width: 1200} }) %>
+  <%= replace_items(lazy_article, current_page_data['class']) %>
+
+  <div class="row pagination text-center">
+    <%= partial 'partials/modules/_bottom_pagination', locals: {
+      pages: pages_data, curpage: current_page_data, nextpage: next_page_data, prevpage: prev_page_data } %>
+  </div>
+
+  <div class="row">
+    <%= partial 'partials/ads/leaderboard' %>
+  </div>
+
+</section>

@@ -1,0 +1,7 @@
+<!-- Chorus Analytics DataLayer Setup -->
+<script>
+(function(a,b){a.Chorus=a.Chorus||{};a.CA=a.Chorus.Analytics=a.CA||function(a){for(var d="event social pageview eventAutoFormat trackElementView onElementView disableScrollDepth".split(" "),b=function(a,b){a[b]=function(){a._q.push([b,arguments])}},c=0;c<d.length;c++)b(a,d[c]);return a}({dataLayer:b,_q:[]})})(window,"dataLayer");
+
+dataLayer = [<%=JSON.pretty_generate data_layer%>];
+</script>
+<!-- End Chorus Analytics DataLayer Setup -->

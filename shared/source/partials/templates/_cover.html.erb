@@ -1,0 +1,64 @@
+<% cover = current_page_data['chorus_entry'] %>
+<section class="main-section">
+  <!-- COVER -->
+  <div class="cover lazy text-center <%= current_page_data['hero_color'] %>
+    <% if cover['body_extended'].length == 0 && cover['summary'].nil? %>
+      missing-both
+    <% elsif cover['body_extended'].length == 0 || cover['summary'].nil?  %>
+      missing-one
+    <% end %>
+    "
+  <% if cover['_embedded']['image'] %>
+    <% if cover['_embedded']['image']['crops'] %>
+      <% crops = crop_lede(cover['_embedded']['image']['crops'].find { |h| h['ratio_name'] == 'cinema' }) %>
+        data-original="<%= thumb_url cover['_embedded']['image']['url'], crop: crops %>"
+        data-x-large="<%= thumb_url cover['_embedded']['image']['url'], {width: 1600, crop: crops } %>"
+        data-large="<%= thumb_url cover['_embedded']['image']['url'], {width: 900, crop: crops } %>"
+        data-small="<%= thumb_url cover['_embedded']['image']['url'], {width: 640, crop: crops } %>"
+        data-x-small="<%= thumb_url cover['_embedded']['image']['url'], {width: 400, crop: crops } %>"
+      <% else %>
+        data-original="<%= thumb_url cover['_embedded']['image']['url'] %>"
+        data-original="<%= thumb_url cover['_embedded']['image']['url'], {width: 1100, height: get_height(1100), :valign => :top} %>"
+        data-medium="<%= thumb_url cover['_embedded']['image']['url'], {width: 900, height: get_height(900), :valign => :top} %>"
+        data-small="<%= thumb_url cover['_embedded']['image']['url'], {width: 640, height: get_height(640), :valign => :top} %>"
+        data-x-small="<%= thumb_url cover['_embedded']['image']['url'], {width: 400, height: get_height(400), :valign => :top} %>"
+      <% end %>
+  <% end %>
+  >
+  <div class="cover-text">
+    <% if data.autotune.theme == 'polygon' && current_page_data['cover_story'] && current_page_data['cover_number'] %>
+    <div class="m-cover-hero__issue-number">
+      <style>.m-cover-hero__issue-number strong:before {content: '<%= current_page_data["cover_number"] %>';}</style>
+      <a target="new" href="http://www.polygon.com/covers" data-analytics-link="cover-number">
+        <span>Issue</span> <strong class="issueNo"></strong>
+      </a>
+    </div>
+    <% end %>
+    <h1><%= current_page_data['title'] %></h1>
+    <h3 class="subheader"><%= cover['summary']%></h3>
+    <% if cover['_embedded']['editorial_app_association']['order'] == 1 %>
+      <p>
+        <% if current_page_data['optional_byline'] %>
+          By: <%= cover['_embedded']['author']['first_name'] %> <%= cover['_embedded']['author']['last_name'] %>
+          <% if current_page_data['pubdate'] %>
+            on <%= current_page_data['pubdate'] %>
+          <% end %>
+        <% elsif current_page_data['pubdate'] %>
+          <%= current_page_data['pubdate'] %>
+        <% end %>
+      </p>
+    <% else %>
+      <% if current_page_data['optional_byline'] %>
+        <p>By: <%= cover['_embedded']['author']['first_name'] %> <%= cover['_embedded']['author']['last_name'] %></p>
+      <% end %>
+    <% end %>
+    <%= cover['body_extended'] %>
+    <a class="button small nav-next <%= 'disabled' if next_page.nil? %>"
+           href="<%= page_url next_page_data['slug'] unless next_page.nil? %>" data-analytics-link="cover-CTA">ENTER</a>
+  </div>
+</div>
+  <!-- /COVER -->
+  <div class="row ad full">
+    <%= partial 'partials/ads/leaderboard' %>
+  </div>
+</section>

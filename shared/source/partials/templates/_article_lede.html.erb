@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="article-lede <% if article['_embedded']['image'] %>snippet wide <% end %>">
+      <h1><%= get_first_available(article['title'], current_page_data['title']) %></h1>
+      <% if article['summary'] && article['summary'].length > 0 %>
+        <h3 class="subheader"><%= article['summary']%></h3>
+      <% end %>
+      <% if current_page_data['optional_byline'] %>
+        <p>By: <%= article['_embedded']['author']['first_name'] %> <%= article['_embedded']['author']['last_name'] %></p>
+      <% end %>
+      <%= partial 'partials/modules/inline-share', locals: { page_slug: current_page_data['slug'], share_image_url: current_page_data['sharing_image_url'], fallback_sharing_image_url: current_page_data['fallback_sharing_image_url'], seo_description: current_page_data['seo_description'], twitter_text: current_page_data['twitter_text'] } %>
+    </div>
+
+    <% if article['_embedded']['image'] %>
+      <% if article['_embedded']['image']['crops'] %>
+        <% crops = crop_lede(article['_embedded']['image']['crops'].find { |h| h['ratio_name'] == 'cinema' }) %>
+        <div class="snippet wide">
+          <img class="lazy"
+            data-original="<%= thumb_url article['_embedded']['image']['url'], {width: 1100, crop: crops } %>"
+            data-medium="<%= thumb_url article['_embedded']['image']['url'], {width: 900, crop: crops } %>"
+            data-small="<%= thumb_url article['_embedded']['image']['url'], {width: 640, crop: crops } %>"
+            data-x-small="<%= thumb_url article['_embedded']['image']['url'], {width: 400, crop: crops } %>"/>
+        </div>
+      <% else %>
+        <div class="snippet wide">
+        <img class="lazy"
+          data-original="<%= thumb_url article['_embedded']['image']['url'], {width: 1100, height: get_height(1100), :valign => :top} %>"
+          data-medium="<%= thumb_url article['_embedded']['image']['url'], {width: 900, height: get_height(900), :valign => :top} %>"
+          data-small="<%= thumb_url article['_embedded']['image']['url'], {width: 640, height: get_height(640), :valign => :top} %>"
+          data-x-small="<%= thumb_url article['_embedded']['image']['url'], {width: 400, height: get_height(400), :valign => :top} %>" />
+        </div>
+      <% end %>
+      <% if article['_embedded']['image']['photo_credit'] %>
+        <cite><%= article['_embedded']['image']['photo_credit'] %></cite>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<% if article['body'] && article['body'].length > 0 %>
+  <div class="row">
+    <div class="large-12 columns">
+        <p class="intro"><%= article['body'] %></p>
+    </div>
+  </div>
+<% end %>

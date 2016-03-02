@@ -1,0 +1,10 @@
+<div class="m-pagination">
+  <div class="m-pagination__wrap">
+    <% unless prevpage.nil? %>
+    <a class="prev" href="<%= page_url prevpage['slug'] %>" data-analytics-link="pagination-prev">Previous</a>
+    <% end %>
+    <% unless nextpage.nil? %>
+    <a class="next" href="<%= page_url nextpage['slug'] %>" data-analytics-link="pagination-next">Next</a>
+    <% end %>
+  </div>
+</div>

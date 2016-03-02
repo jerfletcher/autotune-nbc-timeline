@@ -1,0 +1,55 @@
+.m-graphics-topper {
+  position:relative;
+  margin-bottom: 0.2rem;
+
+  .row{
+    margin: 0.3rem 0;
+    max-width: 100%;
+    h3 {
+      display: table-cell;
+      padding-right: 10px;
+      font-weight: $header-font-weight;
+      width: 100%;
+      -webkit-margin-before: 0em;
+      -webkit-margin-after: 0em;
+      line-height: 1.2;
+      @media #{$small-only} {
+        max-width: 100%;
+      }
+    }
+
+    span{
+      display: table-cell;
+      @media #{$small-only} { display: none; }
+      ul.social {
+        width: 150px;
+        max-width: initial;
+        margin: 0;
+        li {
+          display: inline-block;
+          width: 3rem;
+          text-align: center;
+          overflow-y: hidden;
+          a {
+            display: block;
+            color: $jumbo;
+            text-decoration: none;
+            font-size: 80%;
+          }
+          .icon-twitter,
+          .icon-facebook,
+          .icon-pinterest-alt {
+            margin-top: 10px;
+            @include transition(background-color, 0.3s, ease-in-out);
+          }
+          &:hover {
+            .icon-twitter { color: $twitter; }
+            .icon-facebook { color: $facebook; }
+            .icon-pinterest-alt { color: $pinterest; }
+          }
+        }
+      }
+    }
+
+  }
+}

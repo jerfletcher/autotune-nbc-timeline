@@ -1,0 +1,77 @@
+require 'json'
+require 'chorus_api_client'
+
+def chorus_config
+  @chorus_config ||= JSON.parse(File.read('chorus-config.json'))
+end
+
+def chorus
+  @chorus ||= ChorusApiClient.new(
+    domain: "#{ENV['CHORUS_API_DOMAIN'] || chorus_config['community']}")
+end
+
+def editorial_app
+  @editorial_app ||= chorus.get_editorial_app chorus_config['id']
+end
+
+desc 'Setup the chorus git remote for this editorial app'
+task :add_chorus_remote do
+  puts "Adding git remote for chorus: #{editorial_app['repo_clone_path']}"
+  system "git remote add chorus #{editorial_app['repo_clone_path']}"
+end
+
+desc 'Open Editorial App Admin'
+task :chorus do
+  system "open \"http://www.#{chorus_config['community']}/admin/editorial_apps/edit/#{editorial_app['id']}?community_id=#{editorial_app['community_id']}\""
+end
+
+desc 'Open production site'
+task :site do
+  system "open \"http://www.#{chorus_config['community']}#{chorus_config['url_prefix']}\""
+end
+
+desc 'Open WIKI Docs for Editorial Apps'
+task :wiki do
+  `open "https://github.com/voxmedia/411/wiki/Editorial-Apps-Rig"`
+end
+
+desc 'Make this Editorial App live'
+task :go_live do
+  if editorial_app['public']
+    puts 'App is already live.'
+  else
+    chorus.update_editorial_app editorial_app['slug'], public: true
+    puts 'App is now live!'
+  end
+end
+
+desc 'Make this Editorial App private'
+task :go_private do
+  if editorial_app['public']
+    chorus.update_editorial_app editorial_app['slug'], public: false
+    puts 'App is now private!'
+  else
+    puts 'App is already private.'
+  end
+end
+
+desc 'Rebuild this app in chorus'
+task :rebuild do
+  chorus.build_editorial_app editorial_app['slug']
+  puts 'App is now building...'
+end
+
+desc 'Create a blank Chorus article'
+task :new_article do
+  data = chorus.create_entry type: 'Article'
+  puts <<-MSG
+
+Created a new entry! The ID of this entry is...
+
+  #{data['id']}
+
+Edit the entry here:
+  http://www.#{chorus_config['community']}/admin/entries/edit/#{data['id']}?community_id=#{data['community_id']}
+
+  MSG
+end

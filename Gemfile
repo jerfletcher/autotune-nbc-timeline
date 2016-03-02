@@ -2,9 +2,9 @@
 # the following line to use 'https'
 source 'http://rubygems.org'
 
-gem 'middleman', '~> 3.3.12'
-gem 'therubyracer'
-
+gem 'middleman',
+    git: 'https://github.com/ryanmark/middleman.git',
+    branch: 'v3-shared-source'
 gem 'middleman-sprockets',
     git: 'https://github.com/ryanmark/middleman-sprockets.git',
     branch: 'v3-shared-source'

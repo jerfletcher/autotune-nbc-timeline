@@ -1,0 +1,63 @@
+q {
+  font-family: $header-font-family;
+  text-transform: uppercase;
+}
+.content .row.pagination span,
+q, h4.cred_title, .button {
+  font-family: $header-font-family;
+}
+b, strong {
+  @extend .-gotham-bold;
+}
+i, cite, em {
+  @extend .-mercury-italic;
+}
+
+.m-cover-hero__issue-number {
+  @include transition(all, 0.1s, ease-in-out);
+  @extend .-gotham;
+  display: inline-block;
+  border: 2px solid $primary-color;
+  position: relative;
+  margin-bottom: 14px;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    strong {
+      &:before {
+        color: white;
+      }
+    }
+  }
+  span {
+    @include transition(all, 0.1s, ease-in-out);
+    background: $primary-color;
+    color: white;
+    display: block;
+    font-size: .75em;
+    line-height: 1.25;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    @media #{$small-only} {
+      font-size: 0.5em;
+    }
+  }
+  strong {
+    @include transition(all, 0.1s, ease-in-out);
+    @extend .-gotham-bold;
+    color: #fff;
+    display: block;
+    font-size: 1.75em;
+    line-height: 1.6;
+    padding: 1px 0;
+    text-align: center;
+    @media #{$small-only} {
+      font-size: 1.25em;
+    }
+    &:hover {
+      background: $primary-color;
+    }
+  }
+}

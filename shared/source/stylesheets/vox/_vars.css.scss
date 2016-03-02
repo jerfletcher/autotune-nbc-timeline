@@ -1,0 +1,58 @@
+// ----------------------
+// VOX.COM VARS
+//
+// 
+// IMPORTANT!
+// This is a legacy file. Move over the vars to vox/framework as needed.
+//
+//
+// ----------------------
+
+// Breakpoints
+$break-xsmall         : 400px;
+$break-small          : 600px;
+$break-medium-small   : 728px;
+$break-medium         : 880px;
+$break-large-medium   : 970px;
+$break-large          : 1080px;
+$break-xlarge-large   : 1200px;
+$break-xlarge         : 1500px;
+$break-xxlarge        : 1600px;
+
+// colors
+$black                : #292929;
+
+$default-bg-color     : rgb( 241, 243, 242 );
+$darker-bg-color      : rgb( 233, 231, 232 );
+$default-text-color   : rgb( 77, 77, 77 );
+$lightest-text-color  : rgb( 177, 179, 177 );
+$default-border-color : rgb( 212, 212, 212 );
+
+$vox-logo-color       : rgb( 68, 71, 69 );
+$vox-muted-blue       : rgb( 111, 150, 168 );
+$vox-yellow           : rgb( 255, 242, 0   );
+
+$twitter              : rgb( 0, 172, 238 );
+$facebook             : rgb( 59, 89, 152 );
+
+// Logos
+$nav-logo        : url(../images/vox-logo.png);
+$nav-logo-small  : url(../images/vox-logo.png);
+
+// Fonts
+$harriet         : Harriet, Georgia, serif;
+$harriet-display : 'Harriet display', $harriet;
+$balto           : Balto, Helvetica, sans-serif;
+$voxicon         : 'voxicon', serif;
+
+$default-font         : $balto;
+$default-font-size    : 16px;
+$default-line-height  : (25px/$default-font-size);
+
+// This section needs to be looked at later
+$brand-chart-primary  : $vox-yellow;
+$nav-border-color     : #efefef;
+$menu-font            : $balto;
+$nav-color            : #fff;
+$actionable-color     : #6d98a9;
+$high-contrast-color	: #4f7177;

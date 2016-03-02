@@ -1,0 +1,97 @@
+//= require_tree ./_top
+//= require ./_vendor/modernizr.custom
+
+if (window["_"] != undefined) {
+  _.templateSettings = {
+      interpolate: /\{\{\=(.+?)\}\}/g,
+      evaluate: /\{\{(.+?)\}\}/g
+  };
+}
+
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+
+BookmarkAd = {
+  showAdAtFlipInterval: 3,
+
+  incrementCounter:function(){
+    if (isNaN(sessionStorage.bookmarkCounter)) {
+      sessionStorage.bookmarkCounter = 0;
+    }
+
+    // Only increment on navigation
+    if( (typeof sessionStorage.lastURL === 'undefined') ||
+      (sessionStorage.lastURL != location.pathname) ) {
+      sessionStorage.bookmarkCounter++;
+    }
+
+    sessionStorage.lastURL = location.pathname;
+  },
+
+  cleanUp: function(){
+    $('.bookmark-unit').removeClass("active");
+    $('body').removeClass('bookmarked');
+  },
+
+  prepForDisplay: function(){
+    // All the buttons that could cause a page jump
+    var newPage = $('.nav-next').add('.nav-previous').add('.next').add('.prev');
+    var dismiss = $('.left-off-canvas-toggle').add('.bookmarkClose');
+
+    if (sessionStorage.bookmarkCounter % this.showAdAtFlipInterval === 0 &&
+        sessionStorage.bookmarkCounter > 0) {
+      // Bookmark will be displayed here
+      newPage.one('click', function(evnt) {
+        evnt.preventDefault();
+        $('.bookmark-unit')
+          .addClass("active")
+          .find('.advert').ads('display');
+        $('body').addClass('bookmarked');
+      });
+    } else {
+      // just remove this node
+      $('[data-ad-slot="bookmark"]').remove();
+    }
+
+    //dismiss ad if menu is clicked
+    dismiss.on('click', this.cleanUp);
+  }
+};
+
+(function() {
+  resizeWrap = function() {
+    $('.inner-wrap').height('auto');
+    if($('.inner-wrap').height() < $(window).height()) {
+      $('.inner-wrap').height($(window).height());
+    }
+  };
+
+  $(document).ready(function() {
+    // Initialize your code here
+
+    if ( $('.bookmark-unit').length > 0 ) {
+      BookmarkAd.incrementCounter();
+      BookmarkAd.prepForDisplay();
+    }
+
+    // ** Display Units **//
+    // This setups DFP, defines all slots available on the page, and displays
+    // the visible ones.
+    $('.advert').ads({
+        slug: "/172968584/<%=dfp_site_name %>/editorial_app",
+        keywords: ['<%=h(title) %>']
+    }).filter(':visible').ads('display');
+
+    // Resize the wrapping so short pages don't have weird menu artifacts
+    resizeWrap();
+    $(window).resize(_.debounce(resizeWrap, 300));
+  });
+})();

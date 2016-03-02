@@ -1,0 +1,46 @@
+<nav class="tab-bar">
+  <% if pages.count > 1 %>
+  <section class="left-small">
+    <a class="left-off-canvas-toggle menu-icon" aria-expanded="false" data-analytics-link="toggle-nav"><span></span></a>
+  </section>
+  <% end %>
+  <section class="left">
+    <a class="logo" href="/" data-analytics-link="logo"></a>
+  </section>
+  <% if show_stb %>
+  <section class="stb">
+    <%= ad_placement 'stb' %>
+  </section>
+  <% end %>
+  <section class="right tab-bar-section">
+  <% if pages.count > 1 %>
+    <a data-analytics-social="twitter" href="<%= tweet %>" page-slug="<%= current_page_data['slug'] %>" tweet-text="<%= pages_data[0]['twitter_text'] %>" class="icon-twitter top-nav"></a>
+    <a data-analytics-social="facebook" href="<%= facebook %>" page-slug="<%= current_page_data['slug'] %>" class="icon-facebook top-nav"></a>
+    <a data-analytics-social="pinterest" href="<%= pinterest %>" page-slug="<%= current_page_data['slug'] %>" app-img="<%= pages_data[0]['sharing_image_url'] %>" app-text="<%= pages_data[0]['seo_description'] || meta_description %>" class="icon-pinterest-alt top-nav"></a>
+    <a class="nav-previous icon-prev <%= 'disabled' if prev_page.nil? %>" data-analytics-link="nav-pagination-prev"
+           href="<% if prev_page.nil? %>#<% else %><%= page_url prev_page_data['slug'] %><% end %>"></a>
+    <a class="nav-next icon-next <%= 'disabled' if next_page.nil? %>" data-analytics-link="nav-pagination-next"
+           href="<% if next_page.nil? %>#<% else %><%= page_url next_page_data['slug'] %><% end %>"></a>
+  <% else %>
+    <a data-analytics-social="twitter" href="<%= tweet %>" class="icon-twitter"></a>
+    <a data-analytics-social="facebook" href="<%= facebook %>" class="icon-facebook"></a>
+    <a data-analytics-social="pinterest" href="<%= pinterest %>" class="icon-pinterest-alt"></a>
+  <% end %>
+  </section>
+</nav>
+<% if pages.count > 1 %>
+<aside class="left-off-canvas-menu">
+  <ul class="off-canvas-list">
+
+    <li><a href="<%= page_url %>" data-analytics-link="nav-contents"><h4><%= pages_data[0]['title'] %></h4></a></li>
+    <% pages_data[1..-1].each_with_index do |page, i| %>
+      <li>
+        <a href="<%= page_url page['slug'] %>" data-analytics-link="nav-contents"
+        <% if page['class'] %>class="<%= page['class'] %>"<% end %>
+        ><%= page['title'] %></a>
+      </li>
+    <% end %>
+
+  </ul>
+</aside>
+<% end %>

@@ -1,0 +1,92 @@
+//NAV
+.tab-bar {
+  background: $white;
+  border-bottom: 1px solid $blueprint-gray;
+  .left-small {
+    border: none;
+  }
+  .menu-icon {
+    &:hover {
+      span::after {
+      box-shadow: 0 0 0 1.5px $oil, 0 7px 0 1.5px $oil, 0 14px 0 1.5px $oil;
+    }
+    }
+    span::after {
+      box-shadow: 0 0 0 1.5px $blueprint-medium-gray, 0 7px 0 1.5px $blueprint-medium-gray, 0 14px 0 1.5px $blueprint-medium-gray;
+    }
+  }
+  //vertical logo and STB
+  .left {
+    position: absolute;
+    left: rem-calc(45);
+    height: rem-calc(45);
+    z-index: 99;
+    a.logo {
+      background-image: $logo;
+      background-position: 13px center;
+      background-repeat: no-repeat;
+      background-size: 65%;
+      display: inline-block;
+      height: rem-calc(45);
+      min-width: 150px;
+      @media (max-width: $small-breakpoint) {
+        background-image: $logo-small;
+        min-width: rem-calc(45);
+        background-size: 50%;
+      }
+    }
+  }
+  .right.tab-bar-section {
+    font-size: 0;
+    padding-right: 0;
+    a {
+      font-size: rem-calc(16);
+      color: $blueprint-medium-gray;
+      display: inline-block;
+      width: rem-calc(45);
+      text-align: center;
+      &:last-child {
+        border-right: none;
+      }
+      &:hover {
+        color: $oil;
+      }
+      &.icon-twitter:hover {
+        color: $twitter;
+      }
+      &.icon-facebook:hover {
+        color: $facebook;
+      }
+      &.icon-pinterest-alt:hover {
+        color: $pinterest;
+      }
+    }
+  }
+}
+
+//OFF CANVAS MENU
+.left-off-canvas-menu {
+  background-color: $white;
+  ul.off-canvas-list li{
+    a {
+      color: $black;
+      border-color: $blueprint-gray;
+      border-right: 5px solid transparent;
+      &:hover {
+        background: transparent;
+        border-right-color: $secondary-color;
+        color: $oil;
+      }
+    }
+    h4 {
+      color: $black;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+//ALTER SHADOW ON MENU TOGGLE
+.move-right .exit-off-canvas {
+    box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1), 4px 0 4px rgba(0, 0, 0, 0.1);
+}

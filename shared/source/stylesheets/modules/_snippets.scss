@@ -1,0 +1,128 @@
+$break_snippet: $row-width-wide;
+$break_medium: rem-calc(720);
+
+$m: '.m-video';
+$v: '.m-vine';
+
+.snippet {
+  margin: 20px 0;
+  float: none;
+  position: relative;
+  cite {
+    margin-bottom: 20px;
+  }
+  &.right {
+    @media (min-width: $break_medium) {
+      float: right;
+      width: 50%;
+       margin: 0 0 10px 20px;
+    }
+    @media (min-width: $break_snippet) {
+      margin: 0 -20% 10px 20px;
+    }
+  }
+  &.left {
+    @media (min-width: $break_medium) {
+      float: left;
+      width: 50%;
+      margin: 0 20px 10px 0;
+    }
+    @media (min-width: $break_snippet) {
+      margin: 0 20px 10px -20%;
+    }
+  }
+  &.full {
+    width: 100%;
+  }
+  &.wide {
+    @media (min-width: $break_snippet) {
+      margin-left: -20%;
+      margin-right: -20%;
+    }
+  }
+  &.browser_wide {
+    width: 100%;
+    cite {
+      padding-left: 15px;
+    }
+  }
+  q {
+    color: $primary-color;
+    font-size: 30px;
+    line-height: 1;
+  }
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+ 
+#{$m} {
+  -webkit-transform: translate3d(0,0,0);
+  margin-bottom: 15px;
+  #{$m}__inner {
+    -webkit-transform: translate3d(0,0,0);
+    //responsive video wrapper
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    .embed {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      iframe,
+      object,
+      video,
+      div:nth-child(2),
+      .OoyalaHtml5VideoPlayer {
+        height:100%;
+        width:100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+#{$v} {
+  -webkit-transform: translate3d(0,0,0);
+  margin-bottom: 15px;
+  #{$v}__inner {
+    -webkit-transform: translate3d(0,0,0);
+    //responsive video wrapper
+    position: relative;
+    height: 0;
+    padding-top: 100%;
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    .embed {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      iframe,
+      video {
+        height:100%;
+        width:100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

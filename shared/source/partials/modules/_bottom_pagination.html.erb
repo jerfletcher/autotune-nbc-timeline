@@ -1,0 +1,10 @@
+<% unless prevpage.nil? %>
+<a class="prev icon-prev" href="<%= page_url prevpage['slug'] %>" data-analytics-link="bottom-pagination-prev"></a>
+<% end %>
+<span>
+  Page <%= (pages.index(curpage) || 0) + 1 %> of <%= pages.length %></span>
+<% if nextpage.nil? %>
+  <a class="next icon-next disabled"></a>
+<% else %>
+  <a class="next icon-next" href="<%= page_url nextpage['slug'] %>" data-analytics-link="bottom-pagination-next"></a>
+<% end %>

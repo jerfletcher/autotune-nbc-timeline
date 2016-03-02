@@ -1,0 +1,20 @@
+<section class="content credits">
+  <div class="row">
+    <%= partial 'partials/ads/leaderboard' %>
+  </div>
+  <div class="row">
+    <div class="medium-6 medium-centered columns text-center">
+     <h1>Credits</h1>
+    <% current_page_data["credits"].each do |credit| %>
+      <h4><%= credit.c_title %></h4>
+      <p class="subheader"><%= credit.names %></p>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row pagination text-center">
+    <%=partial 'partials/modules/_bottom_pagination', locals: {
+      pages: pages_data, curpage: current_page_data, nextpage: next_page_data, prevpage: prev_page_data } %>
+  </div>
+
+</section>

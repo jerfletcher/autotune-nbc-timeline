@@ -1,0 +1,21 @@
+@import 'fonts';
+@import 'settings';
+
+// TODO: refactor this out of here
+<% if defined? theme && theme === 'light' %>
+$logo: image_url("<%=vertical %>/logo_alt.png");
+$logo_small: image_url("<%=vertical %>/logo_small_alt.png");
+<% elsif defined? vertical %>
+$logo: image_url("<%=vertical %>/logo.png");
+$logo_small: image_url("<%=vertical %>/logo_small.png");
+<% end %>
+
+@import "<%=vertical || 'voxmedia' %>/fonts";
+@import "<%=vertical || 'voxmedia' %>/settings";
+@import 'foundation';
+@import 'overrides';
+@import "<%=vertical || 'voxmedia' %>/overrides";
+
+// TODO: refactor this out of here
+// Chart colors
+$brand-chart-primary: $primary-color;

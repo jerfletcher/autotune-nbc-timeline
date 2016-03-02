@@ -1,0 +1,60 @@
+//---- Generic VOX-specific vars ----//
+$blueprint-dark-gray:     #474747;
+$blueprint-medium-gray:   #707070;
+$blueprint-gray:          #dddddd;
+$blueprint-light-gray:    #f7f7f7;
+
+$vertical: <%= vertical %>;
+
+$break_small: 640px;
+$break_medium: 900px;
+$break_large: 1200px;
+
+//vertical primary colors
+$eater: #e60000; //red
+$polygon: rgb(255, 0, 82); //poly pink
+$racked: #D36C66; //pink
+$sbnation: #c52126; //red
+$theverge: #FA4B2A; //orange
+$vox: #4f7177; //muted blue
+$curbed: #ff604a;
+$voxmedia: green; //green, update this
+$custom: #292929;
+
+//vertical secondary colors
+$eater_2: #70002a; //purple
+$polygon_2: rgb(142, 43, 136); //poly purple
+$racked_2: #579FAB; //teal
+$sbnation_2: #292929; //dark grey
+$theverge_2: #000000;
+$vox_2: #4f7177; //muted blue
+$curbed_2: #465451;
+$voxmedia_2: purple; //purple, update this
+$custom_2: #e6e6e6; //dark grey, update this
+
+//logos
+<% if vertical != 'custom' %>
+  <% if theme === 'dark' %>
+  $logo: image_url("#{$vertical}/logo.png");
+  $logo_small: image_url("#{$vertical}/logo_small.png");
+  <% elsif theme === 'light' %>
+  $logo: image_url("#{$vertical}/logo_alt.png");
+  $logo_small: image_url("#{$vertical}/logo_small_alt.png");
+  <% end %>
+<% end %>
+
+//social colors
+$twitter: #00ACEE;
+$facebook: #3B5998;
+$gplus: #D34836;
+$pinterest: #CE2029;
+
+//colors
+$brand-chart-primary: $primary-color;
+
+//vertical specific fonts
+@import '<%= vertical %>/fonts';
+
+//vertical specific settings
+@import '<%= vertical %>/settings';
+@import '<%= vertical %>/overrides';

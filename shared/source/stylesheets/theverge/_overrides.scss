@@ -1,0 +1,24 @@
+q {
+  font-family: 'ff-din-web-condensed';
+  text-transform: uppercase;
+  font-weight: 600;
+  font-style: italic;
+}
+.row h2, .cover h2,
+.row h3, .cover h3,
+.row h4, .cover h4{
+  font-family: 'Helvetica';
+  font-weight: $header-font-weight;
+}
+.cred_title {
+  font-family: 'ff-din-web-condensed';
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.content .row.pagination span {
+  font-family: $body-font-family;
+}
+.button {
+  text-transform:uppercase;
+  font-weight:300;
+}

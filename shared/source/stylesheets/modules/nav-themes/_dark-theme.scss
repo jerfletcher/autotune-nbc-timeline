@@ -1,0 +1,71 @@
+//NAV
+.tab-bar {
+  .menu-icon {
+    &:hover {
+      background-color: $black;
+      span::after {
+      box-shadow: 0 0 0 1.5px $iron, 0 7px 0 1.5px $iron, 0 14px 0 1.5px $iron;
+    }
+    }
+    span::after {
+      box-shadow: 0 0 0 1.5px $white, 0 7px 0 1.5px $white, 0 14px 0 1.5px $white;
+    }
+  }
+  //vertical logo and STB
+  .left {
+    position: absolute;
+    left: rem-calc(45);
+    height: rem-calc(45);
+    z-index: 99;
+    a.logo {
+      background-image: $logo;
+      background-position: 13px center;
+      background-repeat: no-repeat;
+      background-size: 65%;
+      display: inline-block;
+      height: rem-calc(45);
+      min-width: 150px;
+      @media (max-width: $small-breakpoint) {
+        background-image: $logo-small;
+        min-width: rem-calc(45);
+        background-size: 50%;
+      }
+    }
+  }
+  .right.tab-bar-section {
+    font-size: 0;
+    padding-right: 0;
+    a {
+      font-size: rem-calc(16);
+      color: $white;
+      display: inline-block;
+      width: rem-calc(45);
+      text-align: center;
+      text-rendering: optimizeLegibility;
+      border-right: $off-canvas-link-border-bottom;
+      &:last-child {
+        border-right: none;
+      }
+      &:hover {
+        background-color: $black;
+        color: $iron;
+      }
+      &.icon-twitter:hover {
+        color: $twitter;
+      }
+      &.icon-facebook:hover {
+        color: $facebook;
+      }
+      &.icon-pinterest-alt:hover {
+        color: $pinterest;
+      }
+    }
+  }
+}
+
+//OFF CANVAS MENU
+.left-off-canvas-menu li h4 {
+  color: $white;
+  margin: 0;
+  padding: 0;
+}

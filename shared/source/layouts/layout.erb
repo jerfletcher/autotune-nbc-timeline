@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <%= partial "partials/modules/meta_tags" %>
+
+    <!-- custom head -->
+    <% unless vertical == 'chorusforads' %>
+    <%= partial "partials/#{vertical}/custom-head" %>
+    <% end %>
+
+    <!-- stylesheets -->
+    <%= stylesheet_link_tag 'custom' %>
+
+    <!-- scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src='//player.ooyala.com/v3/dcc84e41db014454b08662a766057e2b?platform=html5-fallback'></script>
+    <%= javascript_include_tag  'top' %>
+    <%= partial 'partials/modules/analytics_data_layer' %>
+  </head>
+  <body class="<%= page_classes %> antialiased">
+    <%= partial 'partials/modules/analytics' %>
+
+    <%=yield %>
+
+    <%= javascript_include_tag 'app' %>
+    <%= javascript_include_tag 'bottom' %>
+  </body>
+</html>
